@@ -1,7 +1,7 @@
 import React from 'react';
-import { AspectRatio, Button, ButtonVariant, ButtonSize, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose, Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, DrawerClose, ResizablePanelGroup, ResizablePanel, ResizableHandle, ScrollArea, ScrollBar, Separator, Sheet, SheetTrigger, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, Avatar, AvatarImage, AvatarFallback, Badge, Label } from '@hai3/uikit';
+import { AspectRatio, Button, ButtonVariant, ButtonSize, Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter, DialogClose, Drawer, DrawerTrigger, DrawerContent, DrawerHeader, DrawerTitle, DrawerDescription, DrawerFooter, DrawerClose, ResizablePanelGroup, ResizablePanel, ResizableHandle, ScrollArea, ScrollBar, Separator, Sheet, SheetTrigger, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, Avatar, AvatarImage, AvatarFallback, Badge, Label, Input } from '@hai3/uikit';
 import { useTranslation, TextLoader } from '@hai3/uicore';
-import { FormInput } from '../uikit/icons/FormInput';
+import { LinkTextInput } from '../uikit/icons/LinkTextInput';
 import { DEMO_SCREENSET_ID } from "../ids";
 import { UI_KIT_ELEMENTS_SCREEN_ID } from "../ids";
 
@@ -197,7 +197,7 @@ export const LayoutElements: React.FC = () => {
                           {tk('card_form_email_label')}
                         </Label>
                       </TextLoader>
-                      <FormInput
+                      <Input
                         id="email"
                         type="email"
                         placeholder={tk('card_form_email_placeholder')}
@@ -220,7 +220,7 @@ export const LayoutElements: React.FC = () => {
                           </a>
                         </TextLoader>
                       </div>
-                      <FormInput
+                      <Input
                         id="password"
                         type="password"
                         required
@@ -284,7 +284,7 @@ export const LayoutElements: React.FC = () => {
                         {tk('dialog_name_label')}
                       </Label>
                     </TextLoader>
-                    <FormInput
+                    <Input
                       id="name-1"
                       name="name"
                       type="text"
@@ -297,7 +297,7 @@ export const LayoutElements: React.FC = () => {
                         {tk('dialog_username_label')}
                       </Label>
                     </TextLoader>
-                    <FormInput
+                    <Input
                       id="username-1"
                       name="username"
                       type="text"
@@ -352,9 +352,8 @@ export const LayoutElements: React.FC = () => {
                       {tk('dialog_link_label')}
                     </label>
                   </TextLoader>
-                  <FormInput
+                  <LinkTextInput
                     id="link"
-                    type="text"
                     defaultValue={tk('dialog_link_value')}
                   />
                 </div>
@@ -685,7 +684,7 @@ export const LayoutElements: React.FC = () => {
                       {tk('sheet_name_label')}
                     </Label>
                   </TextLoader>
-                  <FormInput
+                  <Input
                     id="sheet-demo-name"
                     type="text"
                     defaultValue={tk('sheet_name_placeholder')}
@@ -697,7 +696,7 @@ export const LayoutElements: React.FC = () => {
                       {tk('sheet_username_label')}
                     </Label>
                   </TextLoader>
-                  <FormInput
+                  <Input
                     id="sheet-demo-username"
                     type="text"
                     defaultValue={tk('sheet_username_placeholder')}

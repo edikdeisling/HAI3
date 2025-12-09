@@ -7,7 +7,6 @@ import type { DateRange } from 'react-day-picker';
 import { useTranslation, TextLoader } from '@hai3/uicore';
 import { DEMO_SCREENSET_ID } from "../ids";
 import { UI_KIT_ELEMENTS_SCREEN_ID } from "../ids";
-import { FormInput } from '../uikit/icons/FormInput';
 
 /**
  * Form Elements Component
@@ -486,7 +485,7 @@ export const FormElements: React.FC = () => {
                 {tk('input_default_label')}
               </label>
             </TextLoader>
-            <FormInput type="text" placeholder={tk('input_name_placeholder')} />
+            <Input type="text" placeholder={tk('input_name_placeholder')} />
           </div>
 
           {/* File Input */}
@@ -496,7 +495,7 @@ export const FormElements: React.FC = () => {
                 {tk('input_file_label')}
               </label>
             </TextLoader>
-            <FormInput id="picture" type="file" />
+            <Input id="picture" type="file" />
           </div>
 
           {/* Disabled Input */}
@@ -506,7 +505,7 @@ export const FormElements: React.FC = () => {
                 {tk('input_disabled_label')}
               </label>
             </TextLoader>
-            <FormInput disabled type="email" placeholder={tk('input_email_placeholder')} />
+            <Input disabled type="email" placeholder={tk('input_email_placeholder')} />
           </div>
 
           {/* Input with Label */}
@@ -516,9 +515,9 @@ export const FormElements: React.FC = () => {
                 {tk('input_with_label_label')}
               </label>
             </TextLoader>
-            <div className="grid w-full max-w-sm items-center gap-3">
+            <div className="grid w-full items-center gap-3">
               <Label htmlFor="password-with-label">{tk('input_new_password_label')}</Label>
-              <FormInput type="password" id="password-with-label" placeholder={tk('input_password_placeholder')} />
+              <Input type="password" id="password-with-label" placeholder={tk('input_password_placeholder')} />
             </div>
           </div>
         </div>
@@ -700,7 +699,7 @@ export const FormElements: React.FC = () => {
                 {tk('textarea_default_label')}
               </label>
             </TextLoader>
-            <Textarea placeholder={tk('textarea_placeholder')} className="max-w-sm" />
+            <Textarea placeholder={tk('textarea_placeholder')} />
           </div>
 
           {/* Disabled Textarea */}
@@ -710,7 +709,7 @@ export const FormElements: React.FC = () => {
                 {tk('textarea_disabled_label')}
               </label>
             </TextLoader>
-            <Textarea disabled placeholder={tk('textarea_placeholder')} className="max-w-sm" />
+            <Textarea disabled placeholder={tk('textarea_placeholder')} />
           </div>
         </div>
       </div>

@@ -49,11 +49,11 @@ import {
   CardFooter,
   Button,
   Label,
+  Input,
 } from '@hai3/uikit';
 import { useTranslation, TextLoader } from '@hai3/uicore';
 import { Slash } from 'lucide-react';
 import { DEMO_SCREENSET_ID } from "../ids";
-import { FormInput } from '../uikit/icons/FormInput';
 import { UI_KIT_ELEMENTS_SCREEN_ID } from "../ids";
 
 /**
@@ -487,11 +487,11 @@ export const NavigationElements: React.FC = () => {
                   <CardContent className="grid gap-6">
                     <div className="grid gap-3">
                       <Label htmlFor="tabs-demo-name">{tk('tabs_name')}</Label>
-                      <FormInput id="tabs-demo-name" defaultValue="Pedro Duarte" />
+                      <Input id="tabs-demo-name" defaultValue="Pedro Duarte" />
                     </div>
                     <div className="grid gap-3">
                       <Label htmlFor="tabs-demo-username">{tk('tabs_username')}</Label>
-                      <FormInput id="tabs-demo-username" defaultValue="@peduarte" />
+                      <Input id="tabs-demo-username" defaultValue="@peduarte" />
                     </div>
                   </CardContent>
                   <CardFooter>
@@ -510,11 +510,11 @@ export const NavigationElements: React.FC = () => {
                   <CardContent className="grid gap-6">
                     <div className="grid gap-3">
                       <Label htmlFor="tabs-demo-current">{tk('tabs_current_password')}</Label>
-                      <FormInput id="tabs-demo-current" type="password" />
+                      <Input id="tabs-demo-current" type="password" />
                     </div>
                     <div className="grid gap-3">
                       <Label htmlFor="tabs-demo-new">{tk('tabs_new_password')}</Label>
-                      <FormInput id="tabs-demo-new" type="password" />
+                      <Input id="tabs-demo-new" type="password" />
                     </div>
                   </CardContent>
                   <CardFooter>
