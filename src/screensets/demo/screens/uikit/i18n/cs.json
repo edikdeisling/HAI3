@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Pokročilé myšlení nebo uvažování.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Open Source model pro všechny."
+  "item_model_3_description": "Open Source model pro všechny.",
+  "field_heading": "Pole",
+  "field_basic_label": "Základní Pole",
+  "field_error_label": "Pole s Chybou",
+  "field_group_label": "Skupina Polí",
+  "field_set_label": "Sada Polí",
+  "field_email_label": "E-mail",
+  "field_email_description": "Zadejte svou e-mailovou adresu",
+  "field_password_label": "Heslo",
+  "field_password_error": "Heslo musí mít alespoň 8 znaků",
+  "field_first_name_label": "Jméno",
+  "field_last_name_label": "Příjmení",
+  "field_contact_info_legend": "Kontaktní Informace",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Adresa"
 }

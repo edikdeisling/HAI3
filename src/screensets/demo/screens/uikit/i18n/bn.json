@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "উন্নত চিন্তা বা যুক্তি।",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "সবার জন্য ওপেন সোর্স মডেল।"
+  "item_model_3_description": "সবার জন্য ওপেন সোর্স মডেল।",
+  "field_heading": "ক্ষেত্র",
+  "field_basic_label": "মৌলিক ক্ষেত্র",
+  "field_error_label": "ত্রুটি সহ ক্ষেত্র",
+  "field_group_label": "ক্ষেত্র গ্রুপ",
+  "field_set_label": "ক্ষেত্র সেট",
+  "field_email_label": "ইমেইল",
+  "field_email_description": "আপনার ইমেইল ঠিকানা লিখুন",
+  "field_password_label": "পাসওয়ার্ড",
+  "field_password_error": "পাসওয়ার্ড কমপক্ষে 8 অক্ষরের হতে হবে",
+  "field_first_name_label": "নাম",
+  "field_last_name_label": "শেষ নাম",
+  "field_contact_info_legend": "যোগাযোগের তথ্য",
+  "field_phone_label": "ফোন",
+  "field_address_label": "ঠিকানা"
 }

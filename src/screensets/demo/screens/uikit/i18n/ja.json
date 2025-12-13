@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "高度な思考や推論。",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "誰でも使えるオープンソースモデル。"
+  "item_model_3_description": "誰でも使えるオープンソースモデル。",
+  "field_heading": "フィールド",
+  "field_basic_label": "基本フィールド",
+  "field_error_label": "エラーフィールド",
+  "field_group_label": "フィールドグループ",
+  "field_set_label": "フィールドセット",
+  "field_email_label": "メール",
+  "field_email_description": "メールアドレスを入力してください",
+  "field_password_label": "パスワード",
+  "field_password_error": "パスワードは8文字以上である必要があります",
+  "field_first_name_label": "名",
+  "field_last_name_label": "姓",
+  "field_contact_info_legend": "連絡先情報",
+  "field_phone_label": "電話",
+  "field_address_label": "住所"
 }

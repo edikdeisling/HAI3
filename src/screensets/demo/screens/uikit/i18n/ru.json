@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Продвинутое мышление или рассуждение.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Модель с открытым исходным кодом для всех."
+  "item_model_3_description": "Модель с открытым исходным кодом для всех.",
+  "field_heading": "Поле",
+  "field_basic_label": "Базовое Поле",
+  "field_error_label": "Поле с Ошибкой",
+  "field_group_label": "Группа Полей",
+  "field_set_label": "Набор Полей",
+  "field_email_label": "Электронная Почта",
+  "field_email_description": "Введите ваш адрес электронной почты",
+  "field_password_label": "Пароль",
+  "field_password_error": "Пароль должен содержать не менее 8 символов",
+  "field_first_name_label": "Имя",
+  "field_last_name_label": "Фамилия",
+  "field_contact_info_legend": "Контактная Информация",
+  "field_phone_label": "Телефон",
+  "field_address_label": "Адрес"
 }

@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Fikra za hali ya juu au hoja.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Mfano wa chanzo wazi kwa kila mtu."
+  "item_model_3_description": "Mfano wa chanzo wazi kwa kila mtu.",
+  "field_heading": "Sehemu",
+  "field_basic_label": "Sehemu ya Msingi",
+  "field_error_label": "Sehemu na Kosa",
+  "field_group_label": "Kikundi cha Sehemu",
+  "field_set_label": "Seti ya Sehemu",
+  "field_email_label": "Barua Pepe",
+  "field_email_description": "Ingiza anwani yako ya barua pepe",
+  "field_password_label": "Nenosiri",
+  "field_password_error": "Nenosiri lazima liwe na angalau herufi 8",
+  "field_first_name_label": "Jina la Kwanza",
+  "field_last_name_label": "Jina la Mwisho",
+  "field_contact_info_legend": "Maelezo ya Mawasiliano",
+  "field_phone_label": "Simu",
+  "field_address_label": "Anwani"
 }

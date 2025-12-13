@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Avansert tenkning eller resonnement.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Åpen kildekode-modell for alle."
+  "item_model_3_description": "Åpen kildekode-modell for alle.",
+  "field_heading": "Felt",
+  "field_basic_label": "Grunnfelt",
+  "field_error_label": "Felt med Feil",
+  "field_group_label": "Feltgruppe",
+  "field_set_label": "Feltsett",
+  "field_email_label": "E-post",
+  "field_email_description": "Skriv inn din e-postadresse",
+  "field_password_label": "Passord",
+  "field_password_error": "Passordet må være minst 8 tegn",
+  "field_first_name_label": "Fornavn",
+  "field_last_name_label": "Etternavn",
+  "field_contact_info_legend": "Kontaktinformasjon",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Adresse"
 }

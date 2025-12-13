@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "חשיבה או הנמקה מתקדמת.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "מודל קוד פתוח לכולם."
+  "item_model_3_description": "מודל קוד פתוח לכולם.",
+  "field_heading": "שדה",
+  "field_basic_label": "שדה בסיסי",
+  "field_error_label": "שדה עם שגיאה",
+  "field_group_label": "קבוצת שדות",
+  "field_set_label": "קבוצת שדות",
+  "field_email_label": "אימייל",
+  "field_email_description": "הזן את כתובת האימייל שלך",
+  "field_password_label": "סיסמה",
+  "field_password_error": "הסיסמה חייבת להכיל לפחות 8 תווים",
+  "field_first_name_label": "שם פרטי",
+  "field_last_name_label": "שם משפחה",
+  "field_contact_info_legend": "פרטי קשר",
+  "field_phone_label": "טלפון",
+  "field_address_label": "כתובת"
 }

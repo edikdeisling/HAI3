@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Edistynyt ajattelu tai päättely.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Avoin lähdekoodi -malli kaikille."
+  "item_model_3_description": "Avoin lähdekoodi -malli kaikille.",
+  "field_heading": "Kenttä",
+  "field_basic_label": "Peruskenttä",
+  "field_error_label": "Kenttä Virheellä",
+  "field_group_label": "Kenttäryhmä",
+  "field_set_label": "Kenttäsarja",
+  "field_email_label": "Sähköposti",
+  "field_email_description": "Syötä sähköpostiosoitteesi",
+  "field_password_label": "Salasana",
+  "field_password_error": "Salasanan on oltava vähintään 8 merkkiä",
+  "field_first_name_label": "Etunimi",
+  "field_last_name_label": "Sukunimi",
+  "field_contact_info_legend": "Yhteystiedot",
+  "field_phone_label": "Puhelin",
+  "field_address_label": "Osoite"
 }

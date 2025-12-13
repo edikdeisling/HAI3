@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Geavanceerd denken of redeneren.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Open source model voor iedereen."
+  "item_model_3_description": "Open source model voor iedereen.",
+  "field_heading": "Veld",
+  "field_basic_label": "Basisveld",
+  "field_error_label": "Veld met Fout",
+  "field_group_label": "Veldgroep",
+  "field_set_label": "Veldset",
+  "field_email_label": "E-mail",
+  "field_email_description": "Voer uw e-mailadres in",
+  "field_password_label": "Wachtwoord",
+  "field_password_error": "Het wachtwoord moet minimaal 8 tekens lang zijn",
+  "field_first_name_label": "Voornaam",
+  "field_last_name_label": "Achternaam",
+  "field_contact_info_legend": "Contactgegevens",
+  "field_phone_label": "Telefoon",
+  "field_address_label": "Adres"
 }

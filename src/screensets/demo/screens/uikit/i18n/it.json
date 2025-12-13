@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Pensiero o ragionamento avanzato.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Modello open source per tutti."
+  "item_model_3_description": "Modello open source per tutti.",
+  "field_heading": "Campo",
+  "field_basic_label": "Campo Base",
+  "field_error_label": "Campo con Errore",
+  "field_group_label": "Gruppo di Campi",
+  "field_set_label": "Set di Campi",
+  "field_email_label": "Email",
+  "field_email_description": "Inserisci il tuo indirizzo email",
+  "field_password_label": "Password",
+  "field_password_error": "La password deve contenere almeno 8 caratteri",
+  "field_first_name_label": "Nome",
+  "field_last_name_label": "Cognome",
+  "field_contact_info_legend": "Informazioni di Contatto",
+  "field_phone_label": "Telefono",
+  "field_address_label": "Indirizzo"
 }

@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Gândire sau raționament avansat.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Model open source pentru toți."
+  "item_model_3_description": "Model open source pentru toți.",
+  "field_heading": "Câmp",
+  "field_basic_label": "Câmp de Bază",
+  "field_error_label": "Câmp cu Eroare",
+  "field_group_label": "Grup de Câmpuri",
+  "field_set_label": "Set de Câmpuri",
+  "field_email_label": "E-mail",
+  "field_email_description": "Introduceți adresa dvs. de e-mail",
+  "field_password_label": "Parolă",
+  "field_password_error": "Parola trebuie să aibă cel puțin 8 caractere",
+  "field_first_name_label": "Prenume",
+  "field_last_name_label": "Nume de Familie",
+  "field_contact_info_legend": "Informații de Contact",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Adresă"
 }

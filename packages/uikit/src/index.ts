@@ -17,6 +17,7 @@ export { NativeSelect, NativeSelectOption, NativeSelectOptGroup } from './base/n
 export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from './base/input-otp';
 export { Input } from './base/input';
 export { Label } from './base/label';
+export { Field, FieldSet, FieldLegend, FieldGroup, FieldLabel, FieldTitle, FieldDescription, FieldContent, FieldSeparator, FieldError } from './base/field';
 export { Textarea } from './base/textarea';
 export { Switch } from './base/switch';
 export { Skeleton } from './base/skeleton';

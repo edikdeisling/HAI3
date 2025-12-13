@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Checkbox, RadioGroup, RadioGroupItem, Switch, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue, NativeSelect, NativeSelectOption, NativeSelectOptGroup, InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator, Textarea, Input, Label, Button, Popover, PopoverContent, PopoverTrigger, ChevronDownIcon } from '@hai3/uikit';
+import { Calendar, Checkbox, RadioGroup, RadioGroupItem, Switch, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue, NativeSelect, NativeSelectOption, NativeSelectOptGroup, InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator, Textarea, Input, Label, Field, FieldSet, FieldLegend, FieldGroup, FieldLabel, FieldDescription, FieldError, Button, Popover, PopoverContent, PopoverTrigger, ChevronDownIcon } from '@hai3/uikit';
 import { ButtonVariant } from '@hai3/uikit-contracts';
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { format } from 'date-fns';
@@ -466,6 +466,83 @@ export const FormElements: React.FC = () => {
               </Label>
               <Input type="text" id="name-required" required />
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Field Element Block */}
+      <div data-element-id="element-field" className="flex flex-col gap-4">
+        <TextLoader skeletonClassName="h-8 w-24">
+          <h2 className="text-2xl font-semibold">
+            {tk('field_heading')}
+          </h2>
+        </TextLoader>
+        <div className="flex flex-col gap-6 p-6 border border-border rounded-lg bg-background overflow-hidden">
+          {/* Basic Field */}
+          <div className="flex flex-col gap-2">
+            <TextLoader skeletonClassName="h-4 w-32" inheritColor>
+              <label className="text-xs text-muted-foreground">
+                {tk('field_basic_label')}
+              </label>
+            </TextLoader>
+            <Field>
+              <FieldLabel htmlFor="field-email">{tk('field_email_label')}</FieldLabel>
+              <Input type="email" id="field-email" />
+              <FieldDescription>{tk('field_email_description')}</FieldDescription>
+            </Field>
+          </div>
+
+          {/* Field with Error */}
+          <div className="flex flex-col gap-2">
+            <TextLoader skeletonClassName="h-4 w-40" inheritColor>
+              <label className="text-xs text-muted-foreground">
+                {tk('field_error_label')}
+              </label>
+            </TextLoader>
+            <Field data-invalid="true">
+              <FieldLabel htmlFor="field-error">{tk('field_password_label')}</FieldLabel>
+              <Input type="password" id="field-error" />
+              <FieldError>{tk('field_password_error')}</FieldError>
+            </Field>
+          </div>
+
+          {/* Field Group */}
+          <div className="flex flex-col gap-2">
+            <TextLoader skeletonClassName="h-4 w-40" inheritColor>
+              <label className="text-xs text-muted-foreground">
+                {tk('field_group_label')}
+              </label>
+            </TextLoader>
+            <FieldGroup>
+              <Field>
+                <FieldLabel htmlFor="field-first-name">{tk('field_first_name_label')}</FieldLabel>
+                <Input type="text" id="field-first-name" />
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="field-last-name">{tk('field_last_name_label')}</FieldLabel>
+                <Input type="text" id="field-last-name" />
+              </Field>
+            </FieldGroup>
+          </div>
+
+          {/* Field Set */}
+          <div className="flex flex-col gap-2">
+            <TextLoader skeletonClassName="h-4 w-40" inheritColor>
+              <label className="text-xs text-muted-foreground">
+                {tk('field_set_label')}
+              </label>
+            </TextLoader>
+            <FieldSet>
+              <FieldLegend>{tk('field_contact_info_legend')}</FieldLegend>
+              <Field>
+                <FieldLabel htmlFor="field-phone">{tk('field_phone_label')}</FieldLabel>
+                <Input type="tel" id="field-phone" />
+              </Field>
+              <Field>
+                <FieldLabel htmlFor="field-address">{tk('field_address_label')}</FieldLabel>
+                <Input type="text" id="field-address" />
+              </Field>
+            </FieldSet>
           </div>
         </div>
       </div>

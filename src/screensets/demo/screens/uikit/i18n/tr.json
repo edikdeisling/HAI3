@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Gelişmiş düşünme veya akıl yürütme.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Herkes için açık kaynak model."
+  "item_model_3_description": "Herkes için açık kaynak model.",
+  "field_heading": "Alan",
+  "field_basic_label": "Temel Alan",
+  "field_error_label": "Hata ile Alan",
+  "field_group_label": "Alan Grubu",
+  "field_set_label": "Alan Seti",
+  "field_email_label": "E-posta",
+  "field_email_description": "E-posta adresinizi girin",
+  "field_password_label": "Şifre",
+  "field_password_error": "Şifre en az 8 karakter olmalıdır",
+  "field_first_name_label": "Ad",
+  "field_last_name_label": "Soyadı",
+  "field_contact_info_legend": "İletişim Bilgileri",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Adres"
 }

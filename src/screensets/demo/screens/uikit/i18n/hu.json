@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Fejlett gondolkodás vagy érvelés.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Nyílt forráskódú modell mindenkinek."
+  "item_model_3_description": "Nyílt forráskódú modell mindenkinek.",
+  "field_heading": "Mező",
+  "field_basic_label": "Alapmező",
+  "field_error_label": "Mező Hibával",
+  "field_group_label": "Mezőcsoport",
+  "field_set_label": "Mezőkészlet",
+  "field_email_label": "E-mail",
+  "field_email_description": "Adja meg az e-mail címét",
+  "field_password_label": "Jelszó",
+  "field_password_error": "A jelszónak legalább 8 karakterből kell állnia",
+  "field_first_name_label": "Keresztnév",
+  "field_last_name_label": "Vezetéknév",
+  "field_contact_info_legend": "Kapcsolattartási Adatok",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Cím"
 }

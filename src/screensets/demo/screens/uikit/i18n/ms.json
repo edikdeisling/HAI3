@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Pemikiran atau penaakulan lanjutan.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Model sumber terbuka untuk semua orang."
+  "item_model_3_description": "Model sumber terbuka untuk semua orang.",
+  "field_heading": "Medan",
+  "field_basic_label": "Medan Asas",
+  "field_error_label": "Medan dengan Ralat",
+  "field_group_label": "Kumpulan Medan",
+  "field_set_label": "Set Medan",
+  "field_email_label": "E-mel",
+  "field_email_description": "Masukkan alamat e-mel anda",
+  "field_password_label": "Kata Laluan",
+  "field_password_error": "Kata laluan mesti sekurang-kurangnya 8 aksara",
+  "field_first_name_label": "Nama Pertama",
+  "field_last_name_label": "Nama Akhir",
+  "field_contact_info_legend": "Maklumat Hubungan",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Alamat"
 }

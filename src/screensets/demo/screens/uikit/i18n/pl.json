@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Zaawansowane myślenie lub rozumowanie.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Model open source dla wszystkich."
+  "item_model_3_description": "Model open source dla wszystkich.",
+  "field_heading": "Pole",
+  "field_basic_label": "Pole Podstawowe",
+  "field_error_label": "Pole z Błędem",
+  "field_group_label": "Grupa Pól",
+  "field_set_label": "Zestaw Pól",
+  "field_email_label": "E-mail",
+  "field_email_description": "Wprowadź swój adres e-mail",
+  "field_password_label": "Hasło",
+  "field_password_error": "Hasło musi mieć co najmniej 8 znaków",
+  "field_first_name_label": "Imię",
+  "field_last_name_label": "Nazwisko",
+  "field_contact_info_legend": "Informacje Kontaktowe",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Adres"
 }

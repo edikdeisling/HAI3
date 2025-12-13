@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "高級思考或推理。",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "面向所有人的開源模型。"
+  "item_model_3_description": "面向所有人的開源模型。",
+  "field_heading": "欄位",
+  "field_basic_label": "基本欄位",
+  "field_error_label": "錯誤欄位",
+  "field_group_label": "欄位群組",
+  "field_set_label": "欄位集合",
+  "field_email_label": "電子郵件",
+  "field_email_description": "輸入您的電子郵件地址",
+  "field_password_label": "密碼",
+  "field_password_error": "密碼必須至少8個字元",
+  "field_first_name_label": "名字",
+  "field_last_name_label": "姓氏",
+  "field_contact_info_legend": "聯絡資訊",
+  "field_phone_label": "電話",
+  "field_address_label": "地址"
 }

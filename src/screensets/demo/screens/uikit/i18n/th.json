@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "การคิดหรือการให้เหตุผลขั้นสูง",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "โมเดลโอเพนซอร์สสำหรับทุกคน"
+  "item_model_3_description": "โมเดลโอเพนซอร์สสำหรับทุกคน",
+  "field_heading": "ฟิลด์",
+  "field_basic_label": "ฟิลด์พื้นฐาน",
+  "field_error_label": "ฟิลด์ที่มีข้อผิดพลาด",
+  "field_group_label": "กลุ่มฟิลด์",
+  "field_set_label": "ชุดฟิลด์",
+  "field_email_label": "อีเมล",
+  "field_email_description": "กรอกที่อยู่อีเมลของคุณ",
+  "field_password_label": "รหัสผ่าน",
+  "field_password_error": "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
+  "field_first_name_label": "ชื่อ",
+  "field_last_name_label": "นามสกุล",
+  "field_contact_info_legend": "ข้อมูลติดต่อ",
+  "field_phone_label": "โทรศัพท์",
+  "field_address_label": "ที่อยู่"
 }

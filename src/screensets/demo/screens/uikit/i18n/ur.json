@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "اعلیٰ درجے کی سوچ یا استدلال۔",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "سب کے لیے اوپن سورس ماڈل۔"
+  "item_model_3_description": "سب کے لیے اوپن سورس ماڈل۔",
+  "field_heading": "فیلڈ",
+  "field_basic_label": "بنیادی فیلڈ",
+  "field_error_label": "غلطی کے ساتھ فیلڈ",
+  "field_group_label": "فیلڈ گروپ",
+  "field_set_label": "فیلڈ سیٹ",
+  "field_email_label": "ای میل",
+  "field_email_description": "اپنا ای میل پتہ درج کریں",
+  "field_password_label": "پاس ورڈ",
+  "field_password_error": "پاس ورڈ کم از کم 8 حروف کا ہونا چاہیے",
+  "field_first_name_label": "پہلا نام",
+  "field_last_name_label": "آخری نام",
+  "field_contact_info_legend": "رابطے کی معلومات",
+  "field_phone_label": "فون",
+  "field_address_label": "پتہ"
 }

@@ -505,5 +505,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "التفكير المتقدم أو المنطق.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "نموذج مفتوح المصدر للجميع."
+  "item_model_3_description": "نموذج مفتوح المصدر للجميع.",
+  "field_heading": "حقل",
+  "field_basic_label": "حقل أساسي",
+  "field_error_label": "حقل مع خطأ",
+  "field_group_label": "مجموعة الحقول",
+  "field_set_label": "مجموعة الحقول",
+  "field_email_label": "البريد الإلكتروني",
+  "field_email_description": "أدخل عنوان بريدك الإلكتروني",
+  "field_password_label": "كلمة المرور",
+  "field_password_error": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+  "field_first_name_label": "الاسم الأول",
+  "field_last_name_label": "اسم العائلة",
+  "field_contact_info_legend": "معلومات الاتصال",
+  "field_phone_label": "الهاتف",
+  "field_address_label": "العنوان"
 }

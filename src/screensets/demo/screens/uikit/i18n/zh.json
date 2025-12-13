@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "高级思考或推理。",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "面向所有人的开源模型。"
+  "item_model_3_description": "面向所有人的开源模型。",
+  "field_heading": "字段",
+  "field_basic_label": "基本字段",
+  "field_error_label": "错误字段",
+  "field_group_label": "字段组",
+  "field_set_label": "字段集",
+  "field_email_label": "电子邮件",
+  "field_email_description": "输入您的电子邮件地址",
+  "field_password_label": "密码",
+  "field_password_error": "密码必须至少8个字符",
+  "field_first_name_label": "名字",
+  "field_last_name_label": "姓氏",
+  "field_contact_info_legend": "联系信息",
+  "field_phone_label": "电话",
+  "field_address_label": "地址"
 }

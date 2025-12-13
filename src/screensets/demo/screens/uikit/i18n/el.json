@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Προηγμένη σκέψη ή συλλογισμός.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Μοντέλο ανοιχτού κώδικα για όλους."
+  "item_model_3_description": "Μοντέλο ανοιχτού κώδικα για όλους.",
+  "field_heading": "Πεδίο",
+  "field_basic_label": "Βασικό Πεδίο",
+  "field_error_label": "Πεδίο με Σφάλμα",
+  "field_group_label": "Ομάδα Πεδίων",
+  "field_set_label": "Σύνολο Πεδίων",
+  "field_email_label": "Ηλεκτρονικό Ταχυδρομείο",
+  "field_email_description": "Εισαγάγετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου σας",
+  "field_password_label": "Κωδικός Πρόσβασης",
+  "field_password_error": "Ο κωδικός πρόσβασης πρέπει να έχει τουλάχιστον 8 χαρακτήρες",
+  "field_first_name_label": "Όνομα",
+  "field_last_name_label": "Επώνυμο",
+  "field_contact_info_legend": "Στοιχεία Επικοινωνίας",
+  "field_phone_label": "Τηλέφωνο",
+  "field_address_label": "Διεύθυνση"
 }

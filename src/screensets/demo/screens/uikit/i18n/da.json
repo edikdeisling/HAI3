@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Avanceret tænkning eller ræsonnement.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Open Source model til alle."
+  "item_model_3_description": "Open Source model til alle.",
+  "field_heading": "Felt",
+  "field_basic_label": "Grundfelt",
+  "field_error_label": "Felt med Fejl",
+  "field_group_label": "Feltgruppe",
+  "field_set_label": "Feltsæt",
+  "field_email_label": "E-mail",
+  "field_email_description": "Indtast din e-mailadresse",
+  "field_password_label": "Adgangskode",
+  "field_password_error": "Adgangskoden skal være mindst 8 tegn",
+  "field_first_name_label": "Fornavn",
+  "field_last_name_label": "Efternavn",
+  "field_contact_info_legend": "Kontaktinformation",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Adresse"
 }

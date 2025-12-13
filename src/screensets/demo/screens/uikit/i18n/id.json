@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Berpikir atau penalaran lanjutan.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Model open source untuk semua orang."
+  "item_model_3_description": "Model open source untuk semua orang.",
+  "field_heading": "Bidang",
+  "field_basic_label": "Bidang Dasar",
+  "field_error_label": "Bidang dengan Kesalahan",
+  "field_group_label": "Grup Bidang",
+  "field_set_label": "Set Bidang",
+  "field_email_label": "Email",
+  "field_email_description": "Masukkan alamat email Anda",
+  "field_password_label": "Kata Sandi",
+  "field_password_error": "Kata sandi harus minimal 8 karakter",
+  "field_first_name_label": "Nama Depan",
+  "field_last_name_label": "Nama Belakang",
+  "field_contact_info_legend": "Informasi Kontak",
+  "field_phone_label": "Telepon",
+  "field_address_label": "Alamat"
 }

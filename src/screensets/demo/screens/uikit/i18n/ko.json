@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "고급 사고 또는 추론.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "모든 사람을 위한 오픈 소스 모델."
+  "item_model_3_description": "모든 사람을 위한 오픈 소스 모델.",
+  "field_heading": "필드",
+  "field_basic_label": "기본 필드",
+  "field_error_label": "오류 필드",
+  "field_group_label": "필드 그룹",
+  "field_set_label": "필드 세트",
+  "field_email_label": "이메일",
+  "field_email_description": "이메일 주소를 입력하세요",
+  "field_password_label": "비밀번호",
+  "field_password_error": "비밀번호는 최소 8자 이상이어야 합니다",
+  "field_first_name_label": "이름",
+  "field_last_name_label": "성",
+  "field_contact_info_legend": "연락처 정보",
+  "field_phone_label": "전화",
+  "field_address_label": "주소"
 }

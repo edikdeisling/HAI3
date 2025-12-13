@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "تفکر یا استدلال پیشرفته.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "مدل منبع باز برای همه."
+  "item_model_3_description": "مدل منبع باز برای همه.",
+  "field_heading": "فیلد",
+  "field_basic_label": "فیلد پایه",
+  "field_error_label": "فیلد با خطا",
+  "field_group_label": "گروه فیلد",
+  "field_set_label": "مجموعه فیلد",
+  "field_email_label": "ایمیل",
+  "field_email_description": "آدرس ایمیل خود را وارد کنید",
+  "field_password_label": "رمز عبور",
+  "field_password_error": "رمز عبور باید حداقل 8 کاراکتر باشد",
+  "field_first_name_label": "نام",
+  "field_last_name_label": "نام خانوادگی",
+  "field_contact_info_legend": "اطلاعات تماس",
+  "field_phone_label": "تلفن",
+  "field_address_label": "آدرس"
 }

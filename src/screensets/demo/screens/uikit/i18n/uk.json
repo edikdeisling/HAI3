@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Розширене мислення або міркування.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Модель з відкритим вихідним кодом для всіх."
+  "item_model_3_description": "Модель з відкритим вихідним кодом для всіх.",
+  "field_heading": "Поле",
+  "field_basic_label": "Базове Поле",
+  "field_error_label": "Поле з Помилкою",
+  "field_group_label": "Група Полів",
+  "field_set_label": "Набір Полів",
+  "field_email_label": "Електронна Пошта",
+  "field_email_description": "Введіть вашу адресу електронної пошти",
+  "field_password_label": "Пароль",
+  "field_password_error": "Пароль повинен містити принаймні 8 символів",
+  "field_first_name_label": "Ім'я",
+  "field_last_name_label": "Прізвище",
+  "field_contact_info_legend": "Контактна Інформація",
+  "field_phone_label": "Телефон",
+  "field_address_label": "Адреса"
 }

@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "उन्नत सोच या तर्क।",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "सभी के लिए ओपन सोर्स मॉडल।"
+  "item_model_3_description": "सभी के लिए ओपन सोर्स मॉडल।",
+  "field_heading": "क्षेत्र",
+  "field_basic_label": "मूल क्षेत्र",
+  "field_error_label": "त्रुटि के साथ क्षेत्र",
+  "field_group_label": "क्षेत्र समूह",
+  "field_set_label": "क्षेत्र सेट",
+  "field_email_label": "ईमेल",
+  "field_email_description": "अपना ईमेल पता दर्ज करें",
+  "field_password_label": "पासवर्ड",
+  "field_password_error": "पासवर्ड कम से कम 8 अक्षरों का होना चाहिए",
+  "field_first_name_label": "पहला नाम",
+  "field_last_name_label": "अंतिम नाम",
+  "field_contact_info_legend": "संपर्क जानकारी",
+  "field_phone_label": "फोन",
+  "field_address_label": "पता"
 }

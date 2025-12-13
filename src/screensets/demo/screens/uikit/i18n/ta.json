@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "மேம்பட்ட சிந்தனை அல்லது பகுத்தறிவு.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "அனைவருக்கும் திறந்த மூல மாதிரி."
+  "item_model_3_description": "அனைவருக்கும் திறந்த மூல மாதிரி.",
+  "field_heading": "புலம்",
+  "field_basic_label": "அடிப்படை புலம்",
+  "field_error_label": "பிழையுடன் புலம்",
+  "field_group_label": "புலக் குழு",
+  "field_set_label": "புலத் தொகுப்பு",
+  "field_email_label": "மின்னஞ்சல்",
+  "field_email_description": "உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்",
+  "field_password_label": "கடவுச்சொல்",
+  "field_password_error": "கடவுச்சொல் குறைந்தது 8 எழுத்துக்கள் இருக்க வேண்டும்",
+  "field_first_name_label": "முதல் பெயர்",
+  "field_last_name_label": "கடைசி பெயர்",
+  "field_contact_info_legend": "தொடர்பு தகவல்",
+  "field_phone_label": "தொலைபேசி",
+  "field_address_label": "முகவரி"
 }

@@ -509,5 +509,19 @@
   "label_disabled_label": "With Disabled Form Control",
   "label_error_label": "With Error State",
   "label_description_text": "Your password must be at least 8 characters long.",
-  "label_error_message": "Please enter a valid email address."
+  "label_error_message": "Please enter a valid email address.",
+  "field_heading": "Field",
+  "field_basic_label": "Basic Field",
+  "field_error_label": "Field with Error",
+  "field_group_label": "Field Group",
+  "field_set_label": "Field Set",
+  "field_email_label": "Email",
+  "field_email_description": "Enter your email address",
+  "field_password_label": "Password",
+  "field_password_error": "Password must be at least 8 characters",
+  "field_first_name_label": "First Name",
+  "field_last_name_label": "Last Name",
+  "field_contact_info_legend": "Contact Information",
+  "field_phone_label": "Phone",
+  "field_address_label": "Address"
 }

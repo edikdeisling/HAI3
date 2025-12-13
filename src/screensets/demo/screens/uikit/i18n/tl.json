@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Advanced na pag-iisip o pangangatwiran.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Open Source model para sa lahat."
+  "item_model_3_description": "Open Source model para sa lahat.",
+  "field_heading": "Patlang",
+  "field_basic_label": "Pangunahing Patlang",
+  "field_error_label": "Patlang na may Error",
+  "field_group_label": "Grupo ng Patlang",
+  "field_set_label": "Set ng Patlang",
+  "field_email_label": "Email",
+  "field_email_description": "Ilagay ang iyong email address",
+  "field_password_label": "Password",
+  "field_password_error": "Ang password ay dapat na hindi bababa sa 8 character",
+  "field_first_name_label": "Unang Pangalan",
+  "field_last_name_label": "Apelyido",
+  "field_contact_info_legend": "Impormasyon ng Kontakto",
+  "field_phone_label": "Telepono",
+  "field_address_label": "Address"
 }

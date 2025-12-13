@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Pensée ou raisonnement avancé.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Modèle open source pour tous."
+  "item_model_3_description": "Modèle open source pour tous.",
+  "field_heading": "Champ",
+  "field_basic_label": "Champ de Base",
+  "field_error_label": "Champ avec Erreur",
+  "field_group_label": "Groupe de Champs",
+  "field_set_label": "Ensemble de Champs",
+  "field_email_label": "E-mail",
+  "field_email_description": "Entrez votre adresse e-mail",
+  "field_password_label": "Mot de Passe",
+  "field_password_error": "Le mot de passe doit contenir au moins 8 caractères",
+  "field_first_name_label": "Prénom",
+  "field_last_name_label": "Nom de Famille",
+  "field_contact_info_legend": "Informations de Contact",
+  "field_phone_label": "Téléphone",
+  "field_address_label": "Adresse"
 }

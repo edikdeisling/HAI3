@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Avancerat tänkande eller resonemang.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Öppen källkod-modell för alla."
+  "item_model_3_description": "Öppen källkod-modell för alla.",
+  "field_heading": "Fält",
+  "field_basic_label": "Grundfält",
+  "field_error_label": "Fält med Fel",
+  "field_group_label": "Fältgrupp",
+  "field_set_label": "Fältset",
+  "field_email_label": "E-post",
+  "field_email_description": "Ange din e-postadress",
+  "field_password_label": "Lösenord",
+  "field_password_error": "Lösenordet måste vara minst 8 tecken långt",
+  "field_first_name_label": "Förnamn",
+  "field_last_name_label": "Efternamn",
+  "field_contact_info_legend": "Kontaktinformation",
+  "field_phone_label": "Telefon",
+  "field_address_label": "Adress"
 }

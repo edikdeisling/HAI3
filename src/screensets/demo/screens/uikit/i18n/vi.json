@@ -509,5 +509,19 @@
   "item_model_2_name": "v0-1.5-lg",
   "item_model_2_description": "Suy nghĩ hoặc lập luận nâng cao.",
   "item_model_3_name": "v0-2.0-mini",
-  "item_model_3_description": "Mô hình mã nguồn mở cho mọi người."
+  "item_model_3_description": "Mô hình mã nguồn mở cho mọi người.",
+  "field_heading": "Trường",
+  "field_basic_label": "Trường Cơ Bản",
+  "field_error_label": "Trường có Lỗi",
+  "field_group_label": "Nhóm Trường",
+  "field_set_label": "Bộ Trường",
+  "field_email_label": "Email",
+  "field_email_description": "Nhập địa chỉ email của bạn",
+  "field_password_label": "Mật Khẩu",
+  "field_password_error": "Mật khẩu phải có ít nhất 8 ký tự",
+  "field_first_name_label": "Tên",
+  "field_last_name_label": "Họ",
+  "field_contact_info_legend": "Thông Tin Liên Hệ",
+  "field_phone_label": "Điện Thoại",
+  "field_address_label": "Địa Chỉ"
 }
