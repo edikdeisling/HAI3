@@ -178,6 +178,7 @@ export const IMPLEMENTED_ELEMENTS = [
   'Chart',
   'Collapsible',
   'Context Menu',
+  'Date Picker',
   'Dialog',
   'Drawer',
   'Dropdown Menu',

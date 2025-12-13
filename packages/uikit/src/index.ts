@@ -333,6 +333,7 @@ export { IconButtonSize } from '@hai3/uikit-contracts';
 
 // Composite form components
 export { InputGroup, InputGroupAddon, InputGroupButton, InputGroupText, InputGroupInput, InputGroupTextarea } from './composite/forms/input-group';
+export { DatePicker, DatePickerTrigger, DatePickerContent, DatePickerInput } from './composite/forms/date-picker';
 
 // Composite navigation (tailored from shadcn sidebar)
 export {

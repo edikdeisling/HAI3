@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
   // Base
-  Button,
   Calendar,
   Checkbox,
   Input,
@@ -37,17 +36,16 @@ import {
   InputGroupInput,
   InputGroupText,
   InputGroupTextarea,
+  // Date Picker
+  DatePicker,
+  DatePickerTrigger,
+  DatePickerContent,
+  DatePickerInput,
   // Input OTP
   InputOTP,
   InputOTPGroup,
   InputOTPSeparator,
   InputOTPSlot,
-  // Popover
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  // Icons
-  ChevronDownIcon,
 } from '@hai3/uikit';
 import { ButtonVariant } from '@hai3/uikit-contracts';
 import { Copy, RefreshCw, CornerDownLeft } from 'lucide-react';
@@ -81,8 +79,14 @@ export const FormElements: React.FC = () => {
   });
   const [dropdownMode, setDropdownMode] = useState<React.ComponentProps<typeof Calendar>["captionLayout"]>("dropdown");
   const [dropdownDate, setDropdownDate] = useState<Date | undefined>(new Date(2025, 5, 12));
-  const [dateTimeOpen, setDateTimeOpen] = useState(false);
-  const [dateTimeDate, setDateTimeDate] = useState<Date | undefined>(undefined);
+
+  // Date Picker state
+  const [basicPickerDate, setBasicPickerDate] = useState<Date | undefined>(undefined);
+  const [dobPickerDate, setDobPickerDate] = useState<Date | undefined>(undefined);
+  const [dobPickerOpen, setDobPickerOpen] = useState(false);
+  const [inputPickerDate, setInputPickerDate] = useState<Date | undefined>(new Date(2025, 5, 1));
+  const [dateTimePickerDate, setDateTimePickerDate] = useState<Date | undefined>(undefined);
+  const [dateTimePickerOpen, setDateTimePickerOpen] = useState(false);
 
   // Get timezone on mount
   useEffect(() => {
@@ -157,7 +161,6 @@ export const FormElements: React.FC = () => {
                 className="rounded-lg border shadow-sm"
               />
               <div className="flex flex-col gap-2">
-                <label className="text-xs text-muted-foreground px-1">Dropdown Mode</label>
                 <Select
                   value={dropdownMode}
                   onValueChange={(value) => setDropdownMode(value as React.ComponentProps<typeof Calendar>["captionLayout"])}
@@ -175,43 +178,123 @@ export const FormElements: React.FC = () => {
             </div>
           </div>
 
+        </div>
+      </div>
+
+      {/* Date Picker Element Block */}
+      <div data-element-id="element-date-picker" className="flex flex-col gap-4">
+        <TextLoader skeletonClassName="h-8 w-32">
+          <h2 className="text-2xl font-semibold">
+            {tk('date_picker_heading')}
+          </h2>
+        </TextLoader>
+        <div className="flex flex-col gap-8 p-6 border border-border rounded-lg bg-background overflow-hidden">
+
+          {/* Basic Date Picker */}
+          <div className="flex flex-col gap-2">
+            <TextLoader skeletonClassName="h-4 w-32" inheritColor>
+              <label className="text-xs text-muted-foreground">
+                {tk('date_picker_basic_label')}
+              </label>
+            </TextLoader>
+            <DatePicker date={basicPickerDate} onDateChange={setBasicPickerDate}>
+              <DatePickerTrigger placeholder={tk('date_picker_select_date')} />
+              <DatePickerContent />
+            </DatePicker>
+          </div>
+
+          {/* Date of Birth Picker */}
+          <div className="flex flex-col gap-2">
+            <TextLoader skeletonClassName="h-4 w-40" inheritColor>
+              <label className="text-xs text-muted-foreground">
+                {tk('date_picker_dob_label')}
+              </label>
+            </TextLoader>
+            <div className="flex flex-col gap-3">
+              <Label htmlFor="dob-picker" className="px-1">
+                {tk('date_picker_dob_field_label')}
+              </Label>
+              <DatePicker
+                date={dobPickerDate}
+                onDateChange={setDobPickerDate}
+                open={dobPickerOpen}
+                onOpenChange={setDobPickerOpen}
+                formatDate={(date) => date.toLocaleDateString()}
+              >
+                <DatePickerTrigger
+                  id="dob-picker"
+                  icon="chevron"
+                  className="w-48"
+                  placeholder={tk('date_picker_select_date')}
+                />
+                <DatePickerContent
+                  calendarProps={{ captionLayout: "dropdown" }}
+                />
+              </DatePicker>
+            </div>
+          </div>
+
+          {/* Date Picker with Input */}
+          <div className="flex flex-col gap-2">
+            <TextLoader skeletonClassName="h-4 w-40" inheritColor>
+              <label className="text-xs text-muted-foreground">
+                {tk('date_picker_input_label')}
+              </label>
+            </TextLoader>
+            <div className="flex flex-col gap-3">
+              <Label htmlFor="input-picker" className="px-1">
+                {tk('date_picker_input_field_label')}
+              </Label>
+              <DatePicker
+                date={inputPickerDate}
+                onDateChange={setInputPickerDate}
+                formatDate={(date) => format(date, "MMMM dd, yyyy")}
+              >
+                <DatePickerInput
+                  id="input-picker"
+                  placeholder={tk('date_picker_input_placeholder')}
+                />
+              </DatePicker>
+            </div>
+          </div>
+
           {/* Date and Time Picker */}
           <div className="flex flex-col gap-2">
-            <TextLoader skeletonClassName="h-4 w-36" inheritColor>
+            <TextLoader skeletonClassName="h-4 w-40" inheritColor>
               <label className="text-xs text-muted-foreground">
-                {tk('calendar_datetime_label')}
+                {tk('date_picker_datetime_label')}
               </label>
             </TextLoader>
             <div className="flex gap-4 flex-wrap">
-              <div className="flex flex-col gap-2">
-                <label className="text-xs text-muted-foreground px-1">Date</label>
-                <Popover open={dateTimeOpen} onOpenChange={setDateTimeOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant={ButtonVariant.Outline}
-                      className="w-32 justify-between font-normal"
-                    >
-                      {dateTimeDate ? dateTimeDate.toLocaleDateString() : "Select date"}
-                      <ChevronDownIcon className="size-4" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto overflow-hidden p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={dateTimeDate}
-                      captionLayout="dropdown"
-                      onSelect={(date) => {
-                        setDateTimeDate(date);
-                        setDateTimeOpen(false);
-                      }}
-                    />
-                  </PopoverContent>
-                </Popover>
+              <div className="flex flex-col gap-3">
+                <Label htmlFor="datetime-picker" className="px-1">
+                  {tk('date_picker_date_label')}
+                </Label>
+                <DatePicker
+                  date={dateTimePickerDate}
+                  onDateChange={setDateTimePickerDate}
+                  open={dateTimePickerOpen}
+                  onOpenChange={setDateTimePickerOpen}
+                  formatDate={(date) => date.toLocaleDateString()}
+                >
+                  <DatePickerTrigger
+                    id="datetime-picker"
+                    icon="chevron"
+                    className="w-32"
+                    placeholder={tk('date_picker_select_date')}
+                  />
+                  <DatePickerContent
+                    calendarProps={{ captionLayout: "dropdown" }}
+                  />
+                </DatePicker>
               </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-xs text-muted-foreground px-1">Time</label>
+              <div className="flex flex-col gap-3">
+                <Label htmlFor="time-picker" className="px-1">
+                  {tk('date_picker_time_label')}
+                </Label>
                 <Input
                   type="time"
+                  id="time-picker"
                   step="1"
                   defaultValue="10:30:00"
                   className="bg-background w-32 appearance-none [&::-webkit-calendar-picker-indicator]:hidden [&::-webkit-calendar-picker-indicator]:appearance-none"
