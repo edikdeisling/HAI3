@@ -33,9 +33,10 @@ import {
   Button,
   ButtonVariant,
   ButtonSize,
+  ChevronRightIcon,
 } from '@hai3/uikit';
 import { useTranslation, TextLoader } from '@hai3/uicore';
-import { BadgeCheckIcon, ChevronRightIcon } from 'lucide-react';
+import { BadgeCheckIcon } from 'lucide-react';
 import { DEMO_SCREENSET_ID } from "../ids";
 import { UI_KIT_ELEMENTS_SCREEN_ID } from "../ids";
 
