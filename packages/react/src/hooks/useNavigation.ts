@@ -63,22 +63,18 @@ export function useNavigation(): UseNavigationReturn {
     [app.actions]
   );
 
-  // Get current screenset from URL by looking up screenId
-  // URL format: /{screenId} - screenId is globally unique
-  const getCurrentScreenset = (): string | null => {
-    if (typeof window === 'undefined') return null;
-    const parts = window.location.pathname.split('/').filter(Boolean);
-    const screenId = parts[0];
-    if (!screenId) return null;
-
-    // Look up which screenset owns this screen
-    return app.routeRegistry?.getScreensetForScreen(screenId) ?? null;
-  };
+  /**
+   * Derived state: screenset looked up from currentScreen via routeRegistry.
+   * Single source of truth (Redux), automatic reactivity.
+   */
+  const currentScreenset = currentScreen
+    ? app.routeRegistry?.getScreensetForScreen(currentScreen) ?? null
+    : null;
 
   return {
     navigateToScreen,
     navigateToScreenset,
-    currentScreenset: getCurrentScreenset(),
+    currentScreenset,
     currentScreen,
   };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { navigateToScreen, useTranslation, uikitRegistry, UiKitComponent, TextLoader, useScreenTranslations, I18nRegistry, Language } from '@hai3/react';
+import { useTranslation, useNavigation, uikitRegistry, UiKitComponent, TextLoader, useScreenTranslations, I18nRegistry, Language } from '@hai3/react';
 import { Card, CardContent } from '@hai3/uikit';
 import { HELLO_WORLD_SCREEN_ID, CURRENT_THEME_SCREEN_ID } from "../../ids";
 import { DEMO_SCREENSET_ID } from "../../ids";
@@ -57,6 +57,7 @@ export const HelloWorldScreen: React.FC = () => {
   useScreenTranslations(DEMO_SCREENSET_ID, HELLO_WORLD_SCREEN_ID, translations);
 
   const { t } = useTranslation();
+  const { navigateToScreen } = useNavigation();
   const Button = uikitRegistry.getComponent(UiKitComponent.Button);
 
   return (
@@ -96,7 +97,7 @@ export const HelloWorldScreen: React.FC = () => {
               {t(`screen.${DEMO_SCREENSET_ID}.${HELLO_WORLD_SCREEN_ID}:navigation_description`)}
             </p>
           </TextLoader>
-          <Button onClick={() => navigateToScreen(CURRENT_THEME_SCREEN_ID)}>
+          <Button onClick={() => navigateToScreen(DEMO_SCREENSET_ID, CURRENT_THEME_SCREEN_ID)}>
             <TextLoader skeletonClassName="h-5 w-32" inheritColor>
               {t(`screen.${DEMO_SCREENSET_ID}.${HELLO_WORLD_SCREEN_ID}:go_to_theme`)}
             </TextLoader>

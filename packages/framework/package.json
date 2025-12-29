@@ -1,6 +1,6 @@
 {
   "name": "@hai3/framework",
-  "version": "0.2.0-alpha.0",
+  "version": "0.2.0-alpha.1",
   "description": "HAI3 framework integrating all SDK packages with plugin architecture",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -40,10 +40,18 @@
     "@hai3/i18n": "*"
   },
   "peerDependenciesMeta": {
-    "@hai3/state": { "optional": false },
-    "@hai3/screensets": { "optional": false },
-    "@hai3/api": { "optional": false },
-    "@hai3/i18n": { "optional": false }
+    "@hai3/state": {
+      "optional": false
+    },
+    "@hai3/screensets": {
+      "optional": false
+    },
+    "@hai3/api": {
+      "optional": false
+    },
+    "@hai3/i18n": {
+      "optional": false
+    }
   },
   "keywords": [
     "hai3",

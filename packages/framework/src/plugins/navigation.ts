@@ -10,25 +10,14 @@ import type { Dispatch, UnknownAction } from '@reduxjs/toolkit';
 import { eventBus } from '@hai3/state';
 import { i18nRegistry } from '@hai3/i18n';
 import { screenActions as screenActionsImport, menuActions as menuActionsImport } from '../slices';
-import type { HAI3Plugin, NavigateToScreenPayload, NavigateToScreensetPayload } from '../types';
-import type { MenuItem } from '../layoutTypes';
+import type { HAI3Plugin, NavigateToScreenPayload, NavigateToScreensetPayload, NavigationConfig } from '../types';
+import { stripBase, prependBase, resolveBase } from '../utils/basePath';
 import type { ScreensetDefinition } from '@hai3/screensets';
 
 // Type assertion for slice imports (needed for plugin system compatibility)
 type ActionCreators = Record<string, (payload?: unknown) => UnknownAction>;
 const screenActions = screenActionsImport as unknown as ActionCreators;
 const menuActions = menuActionsImport as unknown as ActionCreators;
-
-/**
- * Convert screenset menu configuration to MenuItem[] for the menu slice.
- */
-function buildMenuItems(screenset: ScreensetDefinition): MenuItem[] {
-  return screenset.menu.map((item) => ({
-    id: item.menuItem.screenId ?? item.menuItem.id,
-    label: item.menuItem.label,
-    icon: item.menuItem.icon,
-  }));
-}
 
 // Define navigation events for module augmentation
 declare module '@hai3/state' {
@@ -61,19 +50,20 @@ function navigateToScreenset(payload: NavigateToScreensetPayload): void {
 /**
  * Navigation plugin factory.
  *
+ * @param config - Optional navigation configuration
  * @returns Navigation plugin
  *
  * @example
  * ```typescript
  * const app = createHAI3()
  *   .use(screensets())
- *   .use(navigation())
+ *   .use(navigation({ base: '/app' }))
  *   .build();
  *
  * app.actions.navigateToScreen({ screensetId: 'demo', screenId: 'home' });
  * ```
  */
-export function navigation(): HAI3Plugin {
+export function navigation(config?: NavigationConfig): HAI3Plugin {
 
   return {
     name: 'navigation',
@@ -88,145 +78,149 @@ export function navigation(): HAI3Plugin {
 
     onInit(app) {
       const dispatch = app.store.dispatch as Dispatch<UnknownAction>;
+      const base = resolveBase(config, app.config);
       let currentScreensetId: string | null = null;
 
-      /**
-       * Load translations for a screenset (lazy loading).
-       * @param screensetId - The screenset ID
-       * @param language - Optional language to load (uses current language if not specified)
-       */
-      async function loadScreensetTranslations(screensetId: string, language?: string): Promise<void> {
-        await i18nRegistry.loadScreensetTranslations(screensetId, language as Parameters<typeof i18nRegistry.loadScreensetTranslations>[1]);
-      }
+      // Load screenset translations (async, non-blocking)
+      const loadScreensetTranslations = async (screensetId: string, language?: string): Promise<void> => {
+        await i18nRegistry.loadScreensetTranslations(
+          screensetId,
+          language as Parameters<typeof i18nRegistry.loadScreensetTranslations>[1]
+        );
+      };
 
-      /**
-       * Update menu items for the active screenset.
-       * Also loads screenset translations lazily.
-       */
-      function updateMenuForScreenset(screensetId: string): void {
-        if (screensetId === currentScreensetId) return;
+      // Update screenset menu items
+      const updateScreensetMenu = (screenset: ScreensetDefinition): void => {
+        const menuItems = screenset.menu.map((item) => ({
+          id: item.menuItem.screenId ?? item.menuItem.id,
+          label: item.menuItem.label,
+          icon: item.menuItem.icon,
+        }));
+        dispatch(menuActions.setMenuItems(menuItems));
+      };
+
+      // Activate screenset (menu + translations)
+      const activateScreenset = (screensetId: string): void => {
+        if (screensetId === currentScreensetId) {
+          return;
+        }
 
         const screenset = app.screensetRegistry.get(screensetId);
-        if (!screenset) return;
+        if (!screenset) {
+          return;
+        }
 
         currentScreensetId = screensetId;
 
-        // Load screenset translations lazily (non-blocking)
         loadScreensetTranslations(screensetId).catch((err) => {
           console.warn(`[HAI3] Failed to load translations for screenset ${screensetId}:`, err);
         });
 
-        const menuItems = buildMenuItems(screenset);
-        dispatch(menuActions.setMenuItems(menuItems));
-      }
+        updateScreensetMenu(screenset);
+      };
 
-      // Navigation to screen effect
+      // Extract screen ID from current URL
+      const extractScreenId = (): string | null => {
+        const internalPath = stripBase(window.location.pathname, base);
+        if (!internalPath) {
+          return null;
+        }
+
+        const parts = internalPath.split('/').filter(Boolean);
+        return parts[0] || null;
+      };
+
+      // Activate screen (screenset + Redux state)
+      const activateScreen = (screenId: string): void => {
+        const screensetId = app.routeRegistry?.getScreensetForScreen(screenId);
+        if (!screensetId) {
+          return;
+        }
+
+        activateScreenset(screensetId);
+        dispatch(screenActions.navigateTo(screenId));
+      };
+
+      // Handle navigation to specific screen
       eventBus.on('navigation/screen/navigated', (payload: NavigateToScreenPayload) => {
-        // Validate screen exists (optional in non-strict mode)
-        if (app.routeRegistry && !app.routeRegistry.hasScreen(payload.screensetId, payload.screenId)) {
+        if (!app.routeRegistry?.hasScreen(payload.screensetId, payload.screenId)) {
           console.warn(
             `Screen "${payload.screenId}" in screenset "${payload.screensetId}" not found.`
           );
           return;
         }
 
-        // Update menu items for this screenset
-        updateMenuForScreenset(payload.screensetId);
-
-        // Update screen state
+        activateScreenset(payload.screensetId);
         dispatch(screenActions.navigateTo(payload.screenId));
 
-        // Update URL if in browser environment
-        // URL format: /{screenId} (screen IDs are globally unique)
         if (typeof window !== 'undefined') {
-          const url = `/${payload.screenId}`;
-          window.history.pushState(null, '', url);
+          const url = prependBase(`/${payload.screenId}`, base);
+          if (window.location.pathname !== url) {
+            window.history.pushState(null, '', url);
+          }
         }
       });
 
-      // Navigation to screenset effect (navigates to default screen)
+      // Handle navigation to screenset (default screen)
       eventBus.on('navigation/screenset/navigated', (payload: NavigateToScreensetPayload) => {
         const screenset = app.screensetRegistry.get(payload.screensetId);
-
         if (!screenset) {
           console.warn(`Screenset "${payload.screensetId}" not found.`);
           return;
         }
 
-        // Navigate to default screen of the screenset
         navigateToScreen({
           screensetId: payload.screensetId,
           screenId: screenset.defaultScreen,
         });
       });
 
-      // Track last loaded language to detect language changes
       let lastLoadedLanguage: string | null = null;
 
-      // Subscribe to i18nRegistry changes to reload screenset translations after language changes
-      // This runs AFTER setLanguage() completes, ensuring currentLanguage is updated
+      // Reload translations when language changes
       i18nRegistry.subscribe(() => {
         const currentLanguage = i18nRegistry.getLanguage();
-        if (!currentLanguage || currentLanguage === lastLoadedLanguage) return;
-        if (!currentScreensetId) return;
+        if (!currentLanguage || currentLanguage === lastLoadedLanguage) {
+          return;
+        }
+
+        if (!currentScreensetId) {
+          return;
+        }
 
         const screenset = app.screensetRegistry.get(currentScreensetId);
-        if (!screenset) return;
+        if (!screenset) {
+          return;
+        }
 
         lastLoadedLanguage = currentLanguage;
 
-        // Load screenset translations for the new language
-        loadScreensetTranslations(currentScreensetId, currentLanguage).then(() => {
-          // Re-dispatch menu items to trigger re-render with new translations
-          const menuItems = buildMenuItems(screenset);
-          dispatch(menuActions.setMenuItems(menuItems));
-        }).catch((err) => {
-          console.warn(
-            `[HAI3] Failed to reload translations for screenset ${currentScreensetId}:`,
-            err
-          );
-        });
+        loadScreensetTranslations(currentScreensetId, currentLanguage)
+          .then(() => updateScreensetMenu(screenset))
+          .catch((err) => {
+            console.warn(
+              `[HAI3] Failed to reload translations for screenset ${currentScreensetId}:`,
+              err
+            );
+          });
       });
 
-      // Listen for browser back/forward navigation
       if (typeof window !== 'undefined') {
+        // Handle browser back/forward
         window.addEventListener('popstate', () => {
-          const path = window.location.pathname;
-          const parts = path.split('/').filter(Boolean);
-
-          if (parts.length >= 1) {
-            // URL format: /{screenId}
-            const screenId = parts[0];
-            const screensetId = app.routeRegistry?.getScreensetForScreen(screenId);
-            if (screensetId) {
-              updateMenuForScreenset(screensetId);
-              dispatch(screenActions.navigateTo(screenId));
-            }
+          const screenId = extractScreenId();
+          if (screenId) {
+            activateScreen(screenId);
           }
         });
 
-        // Initial navigation based on current URL or first screenset
-        const path = window.location.pathname;
-        const parts = path.split('/').filter(Boolean);
-
-        // Check if autoNavigate is enabled (default: true)
+        // Initial navigation on page load
+        const screenId = extractScreenId();
         const autoNavigate = app.config.autoNavigate !== false;
 
-        if (parts.length >= 1) {
-          // URL has screen - find its screenset and navigate
-          const screenId = parts[0];
-          const screensetId = app.routeRegistry?.getScreensetForScreen(screenId);
-          if (screensetId) {
-            navigateToScreen({ screensetId, screenId });
-          } else if (autoNavigate) {
-            // Screen not found - navigate to first available screenset (only if autoNavigate)
-            const screensets = app.screensetRegistry.getAll();
-            if (screensets.length > 0) {
-              navigateToScreenset({ screensetId: screensets[0].id });
-            }
-          }
+        if (screenId) {
+          activateScreen(screenId);
         } else if (autoNavigate) {
-          // No URL path - navigate to first available screenset (only if autoNavigate)
           const screensets = app.screensetRegistry.getAll();
           if (screensets.length > 0) {
             navigateToScreenset({ screensetId: screensets[0].id });

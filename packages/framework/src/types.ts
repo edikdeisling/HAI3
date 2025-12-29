@@ -50,6 +50,11 @@ export interface HAI3Config {
    * @default true
    */
   autoNavigate?: boolean;
+  /**
+   * Base path for navigation. Example: '/console' makes routes /console/*.
+   * @default '/'
+   */
+  base?: string;
 }
 
 // ============================================================================
@@ -480,8 +485,19 @@ export interface Presets {
 }
 
 // ============================================================================
-// Screensets Plugin Config
+// Plugin Configurations
 // ============================================================================
+
+/**
+ * Navigation Plugin Configuration
+ * Configuration options for the navigation plugin.
+ */
+export interface NavigationConfig {
+  /**
+   * Base path for navigation. Overrides app.config.base if set.
+   */
+  base?: string;
+}
 
 /**
  * Screensets Plugin Configuration
