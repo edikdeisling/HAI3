@@ -531,5 +531,3 @@ export const NavigationElements: React.FC = () => {
 };
 
 NavigationElements.displayName = 'NavigationElements';
-
-export default NavigationElements;
