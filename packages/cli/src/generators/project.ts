@@ -74,6 +74,15 @@ export async function generateProject(
 
   // 2. Copy root template files
   for (const file of rootFiles) {
+    // Special handling for App.tsx - select template variant based on studio flag
+    if (file === 'src/app/App.tsx') {
+      const templateName = studio ? 'src/app/App.tsx' : 'src/app/App.no-studio.tsx';
+      const templatePath = path.join(templatesDir, templateName);
+      const content = await fs.readFile(templatePath, 'utf-8');
+      files.push({ path: 'src/app/App.tsx', content });
+      continue;
+    }
+
     const filePath = path.join(templatesDir, file);
     if (await fs.pathExists(filePath)) {
       const content = await fs.readFile(filePath, 'utf-8');

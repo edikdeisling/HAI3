@@ -46,6 +46,7 @@ root:
     - src/vite-env.d.ts
     - src/app/main.tsx
     - src/app/App.tsx
+    - src/app/App.no-studio.tsx
     - src/screensets/screensetRegistry.tsx
   directories:
     - src/app/themes      # Theme definitions
