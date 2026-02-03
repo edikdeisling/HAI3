@@ -9,13 +9,13 @@
 ## 2. Dependency Upgrades
 - [x] Update root `package.json` dependencies (react, react-dom, @reduxjs/toolkit)
 - [x] Update root `package.json` devDependencies (@types/react, @types/react-dom)
-- [x] Update `packages/uikit/package.json` peerDependencies to support React 18 || 19
+- [ ] Update `packages/uikit/package.json` peerDependencies to React 19 only (remove React 18)
 - [x] Update `packages/uikit/package.json` devDependencies (@types/react, @types/react-dom)
 - [x] Update `packages/react/package.json` devDependencies (react, @types/react)
-- [x] Update `packages/studio/package.json` peerDependencies and devDependencies
+- [ ] Update `packages/studio/package.json` peerDependencies to React 19 only (remove React 18)
 - [x] Update `lucide-react` to 0.563.0 for React 19 support
-- [x] Run `npm install` to install new versions
-- [x] Verify no peer dependency errors
+- [ ] Run `npm install` to install new versions
+- [ ] Verify no peer dependency errors
 
 ## 3. Fix Icon Components (React.FC Removal)
 - [x] Fix `packages/uikit/src/icons/CalendarIcon.tsx`
@@ -36,18 +36,27 @@
 ## 5. Fix JSX Namespace Issues (React 19 Compatibility)
 - [x] Replace `JSX.Element` with `ReactElement` in `packages/react/src/contexts/RouteParamsContext.tsx`
 
-## 6. Type Checking & Compilation
+## 6. Update CLI Generator React Versions
+- [ ] Update `packages/cli/src/generators/project.ts` React dependencies (18.3.1 → 19.0.0)
+- [ ] Update `packages/cli/src/generators/project.ts` Redux Toolkit (2.2.1 → 2.11.2)
+- [ ] Update `packages/cli/src/generators/project.ts` lucide-react (0.344.0 → 0.563.0)
+- [ ] Update `packages/cli/src/generators/project.ts` type definitions (18.x → 19.x)
+- [ ] Update `packages/cli/src/generators/layerPackage.ts` peer dependencies to React 19 only
+- [ ] Update `packages/cli/src/generators/layerPackage.ts` dev dependencies to React 19
+- [ ] Rebuild CLI package (`npm run build --workspace=@hai3/cli`)
+
+## 7. Type Checking & Compilation
 - [x] Run `npm run type-check` - expect zero errors
 - [x] Run `npm run type-check:packages` - expect zero errors
 - [x] Run `npm run build:packages` - expect clean build
 
-## 7. Architecture & Linting Validation
+## 8. Architecture & Linting Validation
 - [x] Run `npm run arch:check` - expect all checks pass
 - [x] Run `npm run arch:deps` - expect no dependency violations
 - [x] Run `npm run arch:sdk` - expect SDK layer rules pass
 - [x] Run `npm run lint` - manually verified (pre-commit hooks passed)
 
-## 8. Manual Testing
+## 9. Manual Testing
 - [x] Start dev server with `npm run dev`
 - [x] Test forms and inputs (focus management, validation)
 - [x] Test Radix UI components (dropdowns, dialogs, tabs, accordion)
@@ -57,11 +66,20 @@
 - [x] Test navigation between screens
 - [x] Test theme switching
 
-## 9. Documentation Updates
+## 10. CLI Generator Integration Testing
+- [ ] Generate new project in temp directory using updated CLI
+- [ ] Verify generated project has React 19.0.0 in package.json
+- [ ] Run `npm install` in generated project - expect no peer dependency errors
+- [ ] Run `npm run build:packages` in generated project - expect clean build
+- [ ] Run `npm run type-check` in generated project - expect zero errors
+- [ ] Run `npm run arch:check` in generated project - expect all checks pass
+- [ ] Run `npm run dev` in generated project - expect dev server starts cleanly
+
+## 11. Documentation Updates
 - [x] Update `openspec/project.md` - change "React 18" to "React 19"
 - [x] Update README files mentioning React version requirements (studio, uikit)
 
-## 10. Final Validation
+## 12. Final Validation
 
 - [x] All implementation tasks completed
 - [x] No TypeScript errors

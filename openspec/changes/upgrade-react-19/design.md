@@ -116,7 +116,11 @@ const Button = ({ ref, ...props }: ButtonProps & { ref?: Ref<HTMLButtonElement> 
 - Update `@types/react`, `@types/react-dom` in devDependencies
 
 **packages/uikit/package.json:**
-- Update peerDependencies: `"react": "^18.0.0 || ^19.0.0"`
+- Update peerDependencies: `"react": "^19.0.0"` (React 19 only)
+- Update devDependencies: `@types/react`, `@types/react-dom`
+
+**packages/studio/package.json:**
+- Update peerDependencies: `"react": "^19.0.0"` (React 19 only)
 - Update devDependencies: `@types/react`, `@types/react-dom`
 
 **packages/react/package.json:**
@@ -181,6 +185,83 @@ const DropdownMenu = ({
   <DropdownMenuPrimitive.Root {...props} dir={dir as 'ltr' | 'rtl' | undefined} />
 );
 ```
+
+### CLI Generator Templates (2 files)
+
+**Why update CLI generator:**
+- CLI generates new HAI3 projects with hardcoded React versions
+- Generated projects must use React 19 to match monorepo
+- Ensures consistency across all HAI3 projects
+
+**File 1:** packages/cli/src/generators/project.ts
+
+Lines 330-350 define dependency versions for generated projects:
+```typescript
+// Before
+const dependencies: Record<string, string> = {
+  '@reduxjs/toolkit': '2.2.1',
+  'lucide-react': '0.344.0',
+  react: '18.3.1',
+  'react-dom': '18.3.1',
+  // ...
+};
+
+const devDependencies: Record<string, string> = {
+  '@types/react': '18.3.3',
+  '@types/react-dom': '18.3.0',
+  // ...
+};
+
+// After
+const dependencies: Record<string, string> = {
+  '@reduxjs/toolkit': '2.11.2',
+  'lucide-react': '0.563.0',
+  react: '19.0.0',
+  'react-dom': '19.0.0',
+  // ...
+};
+
+const devDependencies: Record<string, string> = {
+  '@types/react': '19.0.8',
+  '@types/react-dom': '19.0.3',
+  // ...
+};
+```
+
+**File 2:** packages/cli/src/generators/layerPackage.ts
+
+Lines 68-83 define React dependencies for layer packages (React layer):
+```typescript
+// Before
+peerDependencies: {
+  react: '^18.0.0',
+  'react-dom': '^18.0.0',
+},
+devDependencies: {
+  '@types/react': '^18.0.0',
+  '@types/react-dom': '^18.0.0',
+  react: '^18.3.0',
+  'react-dom': '^18.3.0',
+}
+
+// After
+peerDependencies: {
+  react: '^19.0.0',  // React 19 only
+  'react-dom': '^19.0.0',
+},
+devDependencies: {
+  '@types/react': '^19.0.0',
+  '@types/react-dom': '^19.0.0',
+  react: '^19.0.0',
+  'react-dom': '^19.0.0',
+}
+```
+
+**Testing CLI changes:**
+1. Rebuild CLI: `npm run build --workspace=@hai3/cli`
+2. Generate test project: `npx @hai3/cli@alpha init /tmp/test-project`
+3. Verify package.json has React 19
+4. Run full validation in generated project
 
 ## Validation Strategy
 
