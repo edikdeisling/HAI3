@@ -7,8 +7,8 @@ React 19 introduces performance improvements, new hooks, and simplifies ref forw
 ## What Changes
 
 - **Dependency upgrades:**
-  - React: 18.3.1 → 19.0.0
-  - React-DOM: 18.3.1 → 19.0.0
+  - React: 18.3.1 → 19.2.4
+  - React-DOM: 18.3.1 → 19.2.4
   - @types/react: 18.3.3 → 19.0.8
   - @types/react-dom: 18.3.0 → 19.0.3
   - Redux Toolkit: 2.2.1 → 2.11.2 (React 19 compatibility)

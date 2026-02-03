@@ -92,8 +92,8 @@ const Button = ({ ref, ...props }: ButtonProps & { ref?: Ref<HTMLButtonElement> 
 
 | Package | Current | Target | Compatibility Status |
 |---------|---------|--------|---------------------|
-| react | 18.3.1 | 19.0.0 | ✅ Direct upgrade |
-| react-dom | 18.3.1 | 19.0.0 | ✅ Direct upgrade |
+| react | 18.3.1 | 19.2.4 | ✅ Direct upgrade |
+| react-dom | 18.3.1 | 19.2.4 | ✅ Direct upgrade |
 | @types/react | 18.3.3 | 19.0.8 | ✅ Types published |
 | @types/react-dom | 18.3.0 | 19.0.3 | ✅ Types published |
 | @reduxjs/toolkit | 2.2.1 | 2.11.2 | ✅ React 19 support added in 2.5.0 |
@@ -116,11 +116,11 @@ const Button = ({ ref, ...props }: ButtonProps & { ref?: Ref<HTMLButtonElement> 
 - Update `@types/react`, `@types/react-dom` in devDependencies
 
 **packages/uikit/package.json:**
-- Update peerDependencies: `"react": "^19.0.0"` (React 19 only)
+- Update peerDependencies: `"react": "^19.2.4"` (React 19 only)
 - Update devDependencies: `@types/react`, `@types/react-dom`
 
 **packages/studio/package.json:**
-- Update peerDependencies: `"react": "^19.0.0"` (React 19 only)
+- Update peerDependencies: `"react": "^19.2.4"` (React 19 only)
 - Update devDependencies: `@types/react`, `@types/react-dom`
 
 **packages/react/package.json:**
@@ -216,8 +216,8 @@ const devDependencies: Record<string, string> = {
 const dependencies: Record<string, string> = {
   '@reduxjs/toolkit': '2.11.2',
   'lucide-react': '0.563.0',
-  react: '19.0.0',
-  'react-dom': '19.0.0',
+  react: '19.2.4',
+  'react-dom': '19.2.4',
   // ...
 };
 
@@ -246,14 +246,14 @@ devDependencies: {
 
 // After
 peerDependencies: {
-  react: '^19.0.0',  // React 19 only
-  'react-dom': '^19.0.0',
+  react: '^19.2.4',  // React 19 only
+  'react-dom': '^19.2.4',
 },
 devDependencies: {
   '@types/react': '^19.0.0',
   '@types/react-dom': '^19.0.0',
-  react: '^19.0.0',
-  'react-dom': '^19.0.0',
+  react: '^19.2.4',
+  'react-dom': '^19.2.4',
 }
 ```
 
