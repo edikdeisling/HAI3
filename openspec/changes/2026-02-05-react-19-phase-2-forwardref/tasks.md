@@ -98,9 +98,9 @@
 - [x] Fix `input-group.tsx` - Add type annotations to InputGroupAddon and InputGroupButton
 - [x] Fix `sidebar.tsx` - Add type annotations to Sidebar and SidebarMenuButton
 
-### Fix demo code type errors
-- [x] Fix `FormElements.tsx` line 775 - Change `align="block-end"` to `align="inline-end"`
-- [x] Fix `FormElements.tsx` line 781 - Change `align="block-start"` to `align="inline-start"`
+### Fix type definition for CSS logical flow directions
+- [x] Expand `InputGroupAddon` type to accept all 4 CSS logical directions: "inline-start", "inline-end", "block-start", "block-end"
+- [x] Verify FormElements.tsx uses correct `block-start` and `block-end` for vertical addon positioning
 
 ### Remove unused imports
 - [x] Remove unused `VariantProps` import from `input-group.tsx`

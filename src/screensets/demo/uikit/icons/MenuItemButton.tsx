@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { TextLoader } from '@/app/components/TextLoader';
 
 export interface MenuItemButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -18,12 +18,17 @@ export interface MenuItemButtonProps extends React.ButtonHTMLAttributes<HTMLButt
  * Reusable menu item button with active state indication
  * Ideal for navigation menu items
  */
-export const MenuItemButton = forwardRef<HTMLButtonElement, MenuItemButtonProps>(({
-  isActive = false,
-  children,
-  className = '',
-  ...props
-}, ref) => {
+export const MenuItemButton = (
+  {
+    ref,
+    isActive = false,
+    children,
+    className = '',
+    ...props
+  }: MenuItemButtonProps & {
+    ref?: React.Ref<HTMLButtonElement>;
+  }
+) => {
   // Base styles
   const baseStyles = 'w-full text-left px-3 py-1.5 text-sm rounded-md transition-colors';
 
@@ -44,6 +49,6 @@ export const MenuItemButton = forwardRef<HTMLButtonElement, MenuItemButtonProps>
       </TextLoader>
     </button>
   );
-});
+};
 
 MenuItemButton.displayName = 'MenuItemButton';

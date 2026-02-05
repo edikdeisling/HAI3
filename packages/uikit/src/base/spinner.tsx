@@ -9,23 +9,31 @@ export interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: string
 }
 
-const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
-  ({ className, icon: Icon = Loader2, size = "size-4", ...props }, ref) => {
-    // Extract text-* color classes for the icon, keep other classes for wrapper
-    const textColorClasses = className?.match(/\btext-\S+/g)?.join(' ') || '';
-    const wrapperClasses = trim(className?.replace(/\btext-\S+/g, '') || '');
-
-    return (
-      <div
-        ref={ref}
-        className={cn("inline-flex items-center justify-center", wrapperClasses)}
-        {...props}
-      >
-        <Icon className={cn("animate-spin", size, textColorClasses)} />
-      </div>
-    )
+const Spinner = (
+  {
+    ref,
+    className,
+    icon: Icon = Loader2,
+    size = "size-4",
+    ...props
+  }: SpinnerProps & {
+    ref?: React.Ref<HTMLDivElement>;
   }
-)
+) => {
+  // Extract text-* color classes for the icon, keep other classes for wrapper
+  const textColorClasses = className?.match(/\btext-\S+/g)?.join(' ') || '';
+  const wrapperClasses = trim(className?.replace(/\btext-\S+/g, '') || '');
+
+  return (
+    <div
+      ref={ref}
+      className={cn("inline-flex items-center justify-center", wrapperClasses)}
+      {...props}
+    >
+      <Icon className={cn("animate-spin", size, textColorClasses)} />
+    </div>
+  )
+}
 Spinner.displayName = "Spinner"
 
 export { Spinner }

@@ -403,18 +403,21 @@ git branch -D feat/react19-p2
 
 **Fix applied:**
 ```typescript
-// Changed to valid values
-<InputGroupAddon align="inline-end">   // ✓ Valid
-<InputGroupAddon align="inline-start"> // ✓ Valid
+// Expanded InputGroupAddon type to accept all 4 CSS logical flow directions
+type InputGroupAddonProps = {
+  align?: "inline-start" | "inline-end" | "block-start" | "block-end";
+};
+
+// Demo code correctly uses block directions for vertical positioning
+<InputGroupAddon align="block-end">   // Bottom addon (after textarea)
+<InputGroupAddon align="block-start"> // Top addon (before textarea)
 ```
 
 **Rationale:**
-- Chose to fix demo code rather than expand type definition
-- `inline-start/end` are appropriate for horizontal input group addons
-- Maintains consistency with component's intended design
-
-**Alternative (not chosen):**
-Expand `InputGroupAddon` type to accept all 4 CSS logical directions. This would require updating the component implementation to handle vertical positioning, which is outside the scope of this migration.
+- `block-start/end` are correct for vertical positioning (top/bottom addons)
+- `inline-start/end` are correct for horizontal positioning (left/right addons)
+- Expanded type definition to support both use cases
+- Demo code uses vertical positioning for textarea addons (code editor layout)
 
 ## Success Criteria
 

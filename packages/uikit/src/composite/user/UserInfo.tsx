@@ -21,45 +21,54 @@ export interface UserInfoProps {
  * Composite component combining shadcn Avatar + text
  * Displays user avatar with fallback initials and name/email
  */
-export const UserInfo = React.forwardRef<HTMLDivElement, UserInfoProps>(
-  ({ displayName, email, avatarUrl, className, loading }, ref) => {
-    const getInitials = (): string => {
-      if (!displayName) return toUpper(email?.[0] || '') || '?';
-      const parts = trim(displayName).split(/\s+/);
-      if (parts.length >= 2) {
-        return toUpper(`${parts[0][0]}${parts[parts.length - 1][0]}`);
-      }
-      return toUpper(displayName.slice(0, 2));
-    };
-
-    const initials = getInitials();
-    const displayText = displayName || email || 'User';
-
-    if (loading) {
-      return (
-        <div ref={ref} className={cn('flex items-center gap-2 text-sm', className)}>
-          <Skeleton className="h-8 w-8 rounded-full" />
-          <Skeleton className="h-4 w-24" />
-        </div>
-      );
+export const UserInfo = (
+  {
+    ref,
+    displayName,
+    email,
+    avatarUrl,
+    className,
+    loading
+  }: UserInfoProps & {
+    ref?: React.Ref<HTMLDivElement>;
+  }
+) => {
+  const getInitials = (): string => {
+    if (!displayName) return toUpper(email?.[0] || '') || '?';
+    const parts = trim(displayName).split(/\s+/);
+    if (parts.length >= 2) {
+      return toUpper(`${parts[0][0]}${parts[parts.length - 1][0]}`);
     }
+    return toUpper(displayName.slice(0, 2));
+  };
 
+  const initials = getInitials();
+  const displayText = displayName || email || 'User';
+
+  if (loading) {
     return (
-      <div
-        ref={ref}
-        className={cn(
-          'flex items-center gap-2 text-sm text-muted-foreground',
-          className
-        )}
-      >
-        <Avatar className="h-8 w-8">
-          {avatarUrl && <AvatarImage src={avatarUrl} alt={displayText} />}
-          <AvatarFallback>{initials}</AvatarFallback>
-        </Avatar>
-        <span>{displayText}</span>
+      <div ref={ref} className={cn('flex items-center gap-2 text-sm', className)}>
+        <Skeleton className="h-8 w-8 rounded-full" />
+        <Skeleton className="h-4 w-24" />
       </div>
     );
   }
-);
+
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        'flex items-center gap-2 text-sm text-muted-foreground',
+        className
+      )}
+    >
+      <Avatar className="h-8 w-8">
+        {avatarUrl && <AvatarImage src={avatarUrl} alt={displayText} />}
+        <AvatarFallback>{initials}</AvatarFallback>
+      </Avatar>
+      <span>{displayText}</span>
+    </div>
+  );
+};
 
 UserInfo.displayName = 'UserInfo';

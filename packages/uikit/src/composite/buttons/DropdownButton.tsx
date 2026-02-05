@@ -16,10 +16,17 @@ export interface DropdownButtonProps extends React.ButtonHTMLAttributes<HTMLButt
   className?: string;
 }
 
-export const DropdownButton = React.forwardRef<
-  HTMLButtonElement,
-  DropdownButtonProps
->(({ children, variant = ButtonVariant.Outline, className, ...props }, ref) => {
+export const DropdownButton = (
+  {
+    ref,
+    children,
+    variant = ButtonVariant.Outline,
+    className,
+    ...props
+  }: DropdownButtonProps & {
+    ref?: React.Ref<HTMLButtonElement>;
+  }
+) => {
   return (
     <Button
       ref={ref}
@@ -31,6 +38,6 @@ export const DropdownButton = React.forwardRef<
       <ChevronDownIcon className="h-4 w-4" />
     </Button>
   );
-});
+};
 
 DropdownButton.displayName = 'DropdownButton';
