@@ -3,7 +3,125 @@
 ## Purpose
 
 Provides a collection of base UI components for the @hai3/uikit package, including data visualization with charts built on Recharts library.
+
 ## Requirements
+
+### Requirement: Components use React 19 native ref pattern
+
+All UI Kit base and composite components SHALL use React 19's native ref-as-prop pattern instead of the deprecated `forwardRef` wrapper.
+
+#### Scenario: Component accepts ref as a standard prop
+
+- **WHEN** a component needs to accept a ref from a parent
+- **THEN** the ref is included as a standard prop in the component's props type
+- **AND** the ref is destructured from props like any other prop
+- **AND** no `forwardRef` wrapper is used
+
+**Example:**
+```typescript
+// ✅ React 19 native ref pattern
+export const Button = ({
+  ref,
+  className,
+  variant,
+  ...props
+}: ButtonProps & { ref?: Ref<HTMLButtonElement> }) => {
+  return <button ref={ref} className={className} {...props} />;
+};
+
+// ❌ Deprecated forwardRef pattern (removed)
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref) => <button ref={ref} {...props} />
+);
+```
+
+#### Scenario: Component type includes optional ref
+
+- **WHEN** defining a component's props type
+- **THEN** the ref is included as an optional property using intersection type
+- **AND** the ref type matches the element type being forwarded to
+- **AND** the ref type is imported from 'react' as `Ref<T>`
+
+**Example:**
+```typescript
+import { type Ref } from 'react';
+
+// For button element
+type ButtonComponentProps = ButtonProps & { ref?: Ref<HTMLButtonElement> };
+
+// For div element
+type CardComponentProps = CardProps & { ref?: Ref<HTMLDivElement> };
+
+// For Radix UI component
+type DialogTriggerProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Trigger> & {
+  ref?: Ref<React.ElementRef<typeof DialogPrimitive.Trigger>>;
+};
+```
+
+#### Scenario: displayName is preserved
+
+- **WHEN** a component previously had a displayName assigned
+- **THEN** the displayName assignment is preserved after migration
+- **AND** the displayName remains unchanged
+
+**Example:**
+```typescript
+const Button = ({ ref, ...props }: ButtonProps & { ref?: Ref<HTMLButtonElement> }) => {
+  return <button ref={ref} {...props} />;
+};
+Button.displayName = 'Button'; // Preserved
+```
+
+### Requirement: Special handling for useImperativeHandle
+
+Components using `useImperativeHandle` SHALL continue to use it with the native ref pattern.
+
+#### Scenario: Component uses useImperativeHandle
+
+- **WHEN** a component needs to customize the ref's exposed API
+- **THEN** the component accepts ref as a standard prop
+- **AND** `useImperativeHandle` is used with the ref prop
+- **AND** the internal ref logic remains unchanged
+
+**Example:**
+```typescript
+// Textarea with useImperativeHandle and autoResize
+export const Textarea = ({
+  ref,
+  autoResize,
+  ...props
+}: TextareaProps & { ref?: Ref<HTMLTextAreaElement> }) => {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  // Forward ref using useImperativeHandle (compatible with React 19)
+  useImperativeHandle(ref, () => textareaRef.current!);
+
+  // ... autoResize logic uses textareaRef
+
+  return <textarea ref={textareaRef} {...props} />;
+};
+```
+
+### Requirement: No forwardRef imports
+
+Components SHALL NOT import `forwardRef` from React.
+
+#### Scenario: Clean imports after migration
+
+- **WHEN** reviewing component imports from 'react'
+- **THEN** `forwardRef` is not imported
+- **AND** `Ref` type is imported if ref is used
+- **AND** other React imports remain as needed
+
+**Example:**
+```typescript
+// ✅ After migration
+import { type Ref, useCallback, useState } from 'react';
+
+// ❌ Before migration (removed)
+import { forwardRef, useCallback, useState } from 'react';
+```
+
 ### Requirement: Chart Component
 
 The system SHALL provide a Chart component in the `@hai3/uikit` package for data visualization, built on Recharts library.
