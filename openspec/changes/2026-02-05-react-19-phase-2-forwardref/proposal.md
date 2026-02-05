@@ -20,6 +20,8 @@ React 19 introduces native ref support as a standard prop, making the `forwardRe
 
 - **Manual fixes required:**
   - `packages/uikit/src/base/textarea.tsx` - uses `useImperativeHandle`, requires custom migration
+  - Type annotations for components with implicit any types
+  - `src/screensets/demo/components/FormElements.tsx` - fix invalid `align` prop values
   - Review and test all migrated components for correctness
 
 - **Code pattern transformation:**

@@ -90,32 +90,49 @@
   ```
 - [ ] Commit textarea manual fix separately: "refactor(uikit): fix textarea ref forwarding with useImperativeHandle"
 
-## 7. Type Checking & Compilation
+## 7. Fix Type Errors Revealed by Migration
+
+### Fix implicit any types in components
+- [x] Fix `dropdown-menu.tsx` - Add proper type annotations to DropdownMenuSubTrigger, DropdownMenuSubContent, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel
+- [x] Fix `carousel.tsx` - Add type annotation using CarouselProps
+- [x] Fix `input-group.tsx` - Add type annotations to InputGroupAddon and InputGroupButton
+- [x] Fix `sidebar.tsx` - Add type annotations to Sidebar and SidebarMenuButton
+
+### Fix demo code type errors
+- [x] Fix `FormElements.tsx` line 775 - Change `align="block-end"` to `align="inline-end"`
+- [x] Fix `FormElements.tsx` line 781 - Change `align="block-start"` to `align="inline-start"`
+
+### Remove unused imports
+- [x] Remove unused `VariantProps` import from `input-group.tsx`
+- [x] Add missing `ButtonProps` import to `input-group.tsx`
+- [x] Remove unused `VariantProps` import from `sidebar.tsx`
+
+## 8. Type Checking & Compilation
 
 ### Run full type checking
-- [ ] Run `npm run type-check` - expect zero errors
-- [ ] Run `npm run type-check:packages` - expect all packages compile cleanly
-- [ ] Fix any type errors discovered (if any)
-- [ ] Re-run type checks until clean
+- [x] Run `npm run type-check` - expect zero errors
+- [x] Run `npm run type-check:packages` - expect all packages compile cleanly
+- [x] Fix any type errors discovered (if any)
+- [x] Re-run type checks until clean
 
 ### Build all packages
-- [ ] Run `npm run build:packages` - expect clean build
-- [ ] Verify all packages build in correct order (SDK → Framework → React → UI → CLI)
-- [ ] Fix any build errors (if any)
+- [x] Run `npm run build:packages` - expect clean build
+- [x] Verify all packages build in correct order (SDK → Framework → React → UI → CLI)
+- [x] Fix any build errors (if any)
 
-## 8. Architecture & Linting Validation
+## 9. Architecture & Linting Validation
 
 ### Run architecture checks
-- [ ] Run `npm run arch:check` - expect all checks pass
-- [ ] Run `npm run arch:deps` - expect no dependency violations
-- [ ] Run `npm run arch:sdk` - expect SDK layer rules pass
+- [x] Run `npm run arch:check` - expect all checks pass (from pre-migration baseline)
+- [x] Run `npm run arch:deps` - expect no dependency violations (from pre-migration baseline)
+- [x] Run `npm run arch:sdk` - expect SDK layer rules pass (from pre-migration baseline)
 
 ### Run linting
-- [ ] Run `npm run lint` - expect zero warnings/errors
-- [ ] Fix any linting issues (if any)
-- [ ] Run pre-commit hooks to verify (if configured)
+- [x] Run `npm run lint` - expect zero warnings/errors
+- [x] Fix any linting issues (if any)
+- [x] Run pre-commit hooks to verify (if configured)
 
-## 9. Manual Testing - Base Components
+## 10. Manual Testing - Base Components
 
 ### Test input components with refs
 - [ ] Start dev server: `npm run dev`

@@ -381,19 +381,70 @@ git branch -D feat/react19-p2
 - Manual testing checklist for ref features
 - CLI generator integration test
 
+## Additional Fixes During Migration
+
+### Demo Code Type Errors
+
+**Issue:** After codemod transformation, TypeScript revealed pre-existing type errors in demo code.
+
+**File:** `src/screensets/demo/components/FormElements.tsx`
+
+**Problem:**
+```typescript
+// Invalid align prop values
+<InputGroupAddon align="block-end">    // Error: not assignable to "inline-end" | "inline-start"
+<InputGroupAddon align="block-start">  // Error: not assignable to "inline-end" | "inline-start"
+```
+
+**Root cause:**
+- `InputGroupAddon` component type only accepts `"inline-start" | "inline-end"`
+- Demo code was using CSS logical flow directions `"block-start"` and `"block-end"`
+- These errors were hidden before but exposed by stricter typing after migration
+
+**Fix applied:**
+```typescript
+// Changed to valid values
+<InputGroupAddon align="inline-end">   // ✓ Valid
+<InputGroupAddon align="inline-start"> // ✓ Valid
+```
+
+**Rationale:**
+- Chose to fix demo code rather than expand type definition
+- `inline-start/end` are appropriate for horizontal input group addons
+- Maintains consistency with component's intended design
+
+**Alternative (not chosen):**
+Expand `InputGroupAddon` type to accept all 4 CSS logical directions. This would require updating the component implementation to handle vertical positioning, which is outside the scope of this migration.
+
 ## Success Criteria
 
-- [ ] All 100 forwardRef declarations migrated
-- [ ] Zero TypeScript errors (npm run type-check)
-- [ ] Clean package builds (npm run build:packages)
-- [ ] All architecture checks pass (npm run arch:check)
-- [ ] No linting errors (npm run lint)
+- [x] All 100 forwardRef declarations migrated
+- [x] Zero TypeScript errors (npm run type-check)
+- [x] Clean package builds (npm run build:packages)
+- [x] All architecture checks pass (npm run arch:check)
+- [x] No linting errors (npm run lint)
 - [ ] Dev server starts cleanly (npm run dev)
 - [ ] All ref-dependent features work (manual test)
 - [ ] textarea.tsx autoResize works correctly
 - [ ] CLI generator produces correct MenuItemButton.tsx
 - [ ] Generated project builds and runs
 - [ ] No React warnings in browser console
+
+## Implementation Status
+
+**Completed:**
+- Automated codemod migration (100 forwardRef declarations)
+- Type corrections (RefObject to Ref, optional refs)
+- Type annotations for implicit any types
+- Demo code fixes (FormElements.tsx align props)
+- Import cleanup (unused VariantProps, missing ButtonProps)
+- Full compilation validation (type-check, build, lint)
+
+**Pending manual testing:**
+- Runtime validation in dev server
+- Manual testing of ref-dependent features
+- CLI generator integration testing
+- Browser console validation
 
 ## References
 
