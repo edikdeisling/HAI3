@@ -48,6 +48,11 @@ React 19 introduces native ref support as a standard prop, making the `forwardRe
 - `packages/uikit/src/composite/` (7 files): buttons/DropdownButton, buttons/IconButton, navigation/Sidebar, navigation/SidebarHeader, user/UserInfo
 - `packages/cli/templates/` (1 file): demo screenset MenuItemButton
 
+**Affected packages (version bumps required):**
+- `@hai3/uikit` - All component implementations changed
+- `@hai3/cli` - Template file changed
+- `@hai3/studio` - May need version bump if it depends on uikit
+
 **Breaking changes:**
 - None - this is an internal refactor, no API changes
 - Component signatures remain identical from consumer perspective
